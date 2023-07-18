@@ -16,7 +16,7 @@ function onColorInterval (){
 }
 
 function onRemoveInterval () {
-    startBtn.removeAttribute("disabled", "disabled")
+    startBtn.removeAttribute("disabled", "disabled");
     clearInterval(id);
 }
 
