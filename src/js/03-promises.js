@@ -13,24 +13,19 @@ function addNumber(value) {
 
 function onSubmitForm(event) {
   event.preventDefault();
- 
-  const promises = [];
   
   [...Array(addNumber(amount)).keys()].forEach((_, i) => {
     const delayEl = addNumber(delay) + i * addNumber(step);
-    promises.push(createPromise(i + 1, delayEl));
-  });
-
-
-  promises.forEach(promise => {
-    promise
+ 
+    createPromise(i, delayEl)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
           })
       .catch(({ position, delay }) => {
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
           });
-    }); 
+         
+  }); 
 }
 
 
